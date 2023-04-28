@@ -44,12 +44,8 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class = "form-row">
-                                <div class="form-group">
-                                    <a href = "{{url('/forget-password')}}" class = "link float-end">Mot De Passe Oublié ?</a>
-                                </div>
-                            </div>
                             <div class="form-submit">
+                            <a href = "{{url('/forget-password')}}" class = "link float-end">Mot De Passe Oublié ?</a>
                                 <input type="submit" value="Se connecter" class="submit" name="submit" id="submit" />
                             </div>
                         </form>

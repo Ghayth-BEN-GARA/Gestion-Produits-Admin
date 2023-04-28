@@ -18,7 +18,11 @@
         Route::post('/post-login', 'gestionLogin');
         Route::get('/forget-password', 'ouvrirForgetPassword')->middleware("session_exist");
         Route::post('/post-forget-password', 'gestionForgetPassword');
+        Route::get('/update-password', 'ouvrirUpdatePassword')->middleware("session_exist");
+        Route::post('/post-update-password-forget', 'gestionUpdatePasswordForget');
     });
+
+
 
     Route::controller(DashboardController::class)->group(function() {
         Route::get('/dashboard', 'ouvrirDashboard')->middleware("session_not_exist");

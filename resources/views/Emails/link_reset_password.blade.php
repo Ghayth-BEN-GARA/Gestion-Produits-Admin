@@ -20,7 +20,7 @@
                                 <p style = "margin-top: 0; margin-bottom: 1rem;">
                                     Vous pouvez réinitialiser votre mot de passe en cliquant sur le lien ci-dessous :
                                     <div style = "text-align: left; padding-top: 15px; padding-bottom: 15px;">
-                                        <a href = "http://127.0.0.1:8000/reset-password?token={{$mailData['token']}}&id_user={{$mailData['id_user']}}" style = "text-decoration:none; width: auto; height: 40px; padding:17px; font-family: Nunito, sans-serif; font-weight: 700; font-size: 14px; border: none; margin-left:30px; background-color: #03156B; color: #fff; text-align:center; letter-spacing:0.9px;" target = "_blank">Réinitialisez votre mot de passe</a>
+                                        <a href = "http://127.0.0.1:8000/update-password?token={{$mailData['token']}}&id_user={{$mailData['id_user']}}" style = "text-decoration:none; width: auto; height: 40px; padding:17px; font-family: Nunito, sans-serif; font-weight: 700; font-size: 14px; border: none; margin-left:30px; background-color: #03156B; color: #fff; text-align:center; letter-spacing:0.9px;" target = "_blank">Réinitialisez votre mot de passe</a>
                                     </div>
                                 </p>
                                 <hr style = "margin: 1rem 0; color: inherit; background-color: currentColor; border: 0; opacity: 0.25; height: 1px;">

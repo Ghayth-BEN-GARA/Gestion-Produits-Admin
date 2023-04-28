@@ -68,7 +68,7 @@
 
             elseif($this->sendMailLinkResetPassword($this->getInformationsUserWithEmail($request->email)->nom, $this->getInformationsUserWithEmail($request->email)->prenom, $request->email, $token, $this->getInformationsUserWithEmail($request->email)->id_user)){
                 if($this->verifierIfLinkResetPasswordExist($this->getInformationsUserWithEmail($request->email)->id_user)){
-                    $this->updateLinkResetPassword($this->getInformationsUserWithEmail($request->email), $token);
+                    $this->updateLinkResetPassword($this->getInformationsUserWithEmail($request->email)->id_user, $token);
                     return back()->with("email_sent", "Un email a été envoyé à l'adresse ".$request->email.". Veuillez rechercher dans votre boite de réception l'e-mail reçue et cliquez sur le lien inclus pour réinitialiser votre mot de passe.");
                 }
 
@@ -115,6 +115,38 @@
 
         public function verifierIfLinkResetPasswordExist($id_user){
             return PasswordResetToken::where("id_user", "=", $id_user)->exists();
+        }
+
+        public function ouvrirUpdatePassword(Request $request){
+            $token = $request->token;
+            $id_user = $request->input('id_user');
+            $check_token = $this->verifierIfTokenResetPasswordExist($id_user, $token);
+            return view("Authentification.update_password", compact("token", "id_user", "check_token"));
+        }
+
+        public function verifierIfTokenResetPasswordExist($id_user, $token){
+            return PasswordResetToken::where("id_user", "=", $id_user)->where("token", "=", $token)->exists();
+        }
+
+        public function gestionUpdatePasswordForget(Request $request){
+            if($request->password != $request->confirm_password){
+                return back()->with("erreur_password", "Les deux mots de passe ne sont pas identiques.");
+            }
+
+            else if($this->updatePasswordUser($request->password, $request->input("id_user"))){
+                $this->creerSessionUser($this->getInformationsUserWithId($request->id_user));
+                return redirect("/dashboard");
+            }
+        }
+
+        public function updatePasswordUser($password, $id_user){
+            return User::where("id_user", "=", $id_user)->update([
+                "password" => Hash::make($password)
+            ]);
+        }
+
+        public function getInformationsUserWithId($id){
+            return User::where("id_user", "=", $id)->first();
         }
     }
 ?>
