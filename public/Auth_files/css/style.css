@@ -250,11 +250,11 @@ body {
   line-height: 1.8;
   color: #222;
   font-weight: 400;
-  background: #282828;
-  padding: 90px 0; }
+  background: #fff;
+  padding: 0 0; }
 
 .container {
-  width: 1400px;
+  width: 100%;
   position: relative;
   margin: 0 auto;
   background: #fff; }
@@ -264,6 +264,10 @@ body {
 
 .signup-img {
   margin-bottom: -7px; }
+
+.signup-img img{
+  height: 600px;
+}
 
 .register-form {
   padding: 50px 100px 50px 70px; }
