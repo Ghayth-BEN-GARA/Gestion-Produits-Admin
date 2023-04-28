@@ -2,9 +2,13 @@
     namespace App\Http\Controllers;
     use Illuminate\Http\Request;
     use Illuminate\Support\Facades\Auth;
+    use Illuminate\Support\Facades\Mail;
+    use Illuminate\Support\Str;
+    use App\Mail\EnvoyerMailLinkResetPassword;
     use Session;
     use Hash;
     use App\Models\User;
+    use App\Models\PasswordResetToken;
 
     class AuthentificationController extends Controller{
         public function ouvrirSignin(){
@@ -52,7 +56,65 @@
         }
 
         public function gestionForgetPassword(Request $request){
-            # code...
+            $token = $this->generateToken();
+            
+            if(!$this->checkUserExist($request->email)){
+                return back()->with("erreur_email", "Nous sommes désolés ! Nous n'avons pas trouvé votre compte.");
+            }
+
+            elseif($this->getInformationsUserWithEmail($request->email)->role != "Admin" && $this->getInformationsUserWithEmail($request->email)->role != "Super Admin"){
+                return back()->with("erreur", "Nous sommes désolés de vous informer que vous n'êtes pas autorisé à utiliser cette application.");
+            }
+
+            elseif($this->sendMailLinkResetPassword($this->getInformationsUserWithEmail($request->email)->nom, $this->getInformationsUserWithEmail($request->email)->prenom, $request->email, $token, $this->getInformationsUserWithEmail($request->email)->id_user)){
+                if($this->verifierIfLinkResetPasswordExist($this->getInformationsUserWithEmail($request->email)->id_user)){
+                    $this->updateLinkResetPassword($this->getInformationsUserWithEmail($request->email), $token);
+                    return back()->with("email_sent", "Un email a été envoyé à l'adresse ".$request->email.". Veuillez rechercher dans votre boite de réception l'e-mail reçue et cliquez sur le lien inclus pour réinitialiser votre mot de passe.");
+                }
+
+                else{
+                    $this->creerLinkResetPassword($this->getInformationsUserWithEmail($request->email)->id_user, $token);
+                    return back()->with("email_sent", "Un email a été envoyé à l'adresse ".$request->email.". Veuillez rechercher dans votre boite de réception l'e-mail reçue et cliquez sur le lien inclus pour réinitialiser votre mot de passe.");
+                }
+            }
+
+            else{
+                return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas recevoir l'email pour le moment. Veuillez réessayer plus tard.");
+            }
+        }
+
+        public function generateToken(){
+            return Str::random(64);
+        }
+
+        public function sendMailLinkResetPassword($nom, $prenom, $email, $token, $id_user){
+            $mailData = [
+                'email' => $email,
+                'fullname' => $prenom." ".$nom,
+                'token' => $token,
+                'id_user' => $id_user
+            ];
+    
+            return Mail::to($email)->send(new EnvoyerMailLinkResetPassword($mailData));
+        }
+
+        public function creerLinkResetPassword($id_user, $token){
+            $link = new PasswordResetToken();
+            $link->token = $token;
+            $link->id_user = $id_user;
+
+            return $link->save();
+        }
+
+        public function updateLinkResetPassword($id_user, $token){
+            return PasswordResetToken::where("id_user", "=", $id_user)->update([
+                "token" => $token,
+                "date_time_creation_link" => now()
+            ]);
+        }
+
+        public function verifierIfLinkResetPasswordExist($id_user){
+            return PasswordResetToken::where("id_user", "=", $id_user)->exists();
         }
     }
 ?>

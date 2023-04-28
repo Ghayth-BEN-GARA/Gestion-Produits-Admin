@@ -11,6 +11,7 @@
         protected $primaryKey = "id_user";
         public $timestamps = false;
         public $incrementing = false;
+        
         /**
          * The attributes that are mass assignable.
          *
