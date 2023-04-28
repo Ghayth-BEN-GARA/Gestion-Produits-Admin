@@ -12,7 +12,7 @@
          */
         public function handle(Request $request, Closure $next){
             if(!Session()->has("email")){
-                return back();
+                return redirect("/");
             }
             return $next($request);
         }

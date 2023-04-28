@@ -60,6 +60,9 @@
                                     <li class="nav-item">
                                         <a class="nav-link" data-bs-toggle="tab" href="#password_tab">Modifier le mot de passe</a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-bs-toggle="tab" href="#infos_tab">Modifier les informations</a>
+                                    </li>
                                 </ul>
                             </div>
                             <div class="tab-content profile-tab-cont">
@@ -178,6 +181,62 @@
                                                         <div class="form-group">
                                                             <label>Confirmez Le Nouveau Mot De Passe</label>
                                                             <input type="password" class="form-control" name = "confirm_new_password" id = "confirm_new_password" placeholder = "Confirmez votre nouveau mot de passe.." required>
+                                                        </div>
+                                                        <button class="btn btn-primary" type="submit">Sauvegarder les modifications</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="infos_tab" class="tab-pane fade">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Informations</h5>
+                                            <div class="row">
+                                                <div class="col-md-10 col-lg-12">
+                                                    <form>
+                                                        @csrf
+                                                        <div class = "row">
+                                                            <div class = "col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Nom</label>
+                                                                    <input type="text" class="form-control" name = "nom" id = "nom" placeholder = "Entrez votre nom.." value = "{{auth()->user()->nom}}" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class = "col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Prénom</label>
+                                                                    <input type="text" class="form-control" name = "prenom" id = "prenom" placeholder = "Entrez votre prénom.." value = "{{auth()->user()->prenom}}" required>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class = "row">
+                                                            <div class = "col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Adresse Email</label>
+                                                                    <input type="email" class="form-control" name = "email" id = "email" placeholder = "Entrez votre adresse email.." value = "{{auth()->user()->email}}" disabled required>
+                                                                </div>
+                                                            </div>
+                                                            <div class = "col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Genre</label>
+                                                                    <select class = "form-control" name = "genre" id = "genre" required>
+                                                                        <option value = "#" selected disabled>Sélectionnez votre genre..</option>
+                                                                        <option value = "Femme" <?php echo !auth()->user()->genre == null && auth()->user()->genre == 'Femme' ? 'selected' : '' ?>>Femme</option>
+                                                                        <option value = "Homme" <?php echo !auth()->user()->genre == null && auth()->user()->genre == 'Homme' ? 'selected' : '' ?>>Homme</option>
+                                                                        <option value = "Non spécifié" <?php echo !auth()->user()->genre == null && auth()->user()->genre == 'Non spécifié' ? 'selected' : ''; ?>>Non spécifié</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class = "row">
+                                                            <div class = "col-md-12">
+                                                                <div class="form-group">
+                                                                    <label>Numéro Mobile</label>
+                                                                    <input type="text" class="form-control" name = "mobile" id = "mobile" placeholder = "Entrez votre numéro mobile.." value = "{{auth()->user()->mobile}}" onKeyPress = "if(this.value.length==8) return false; return event.charCode>=48 && event.charCode<=57" required>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                         <button class="btn btn-primary" type="submit">Sauvegarder les modifications</button>
                                                     </form>
