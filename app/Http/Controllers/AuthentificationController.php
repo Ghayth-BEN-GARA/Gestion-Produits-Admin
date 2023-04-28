@@ -3,6 +3,8 @@
     use Illuminate\Http\Request;
 
     class AuthentificationController extends Controller{
-    //
+        public function ouvrirSignin(){
+            return view("Authentification.login");
+        }
     }
 ?>

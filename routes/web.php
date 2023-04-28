@@ -13,6 +13,6 @@
     */
 
     Route::controller(AuthentificationController::class)->group(function() {
-        
+        Route::get('/', 'ouvrirSignin')->middleware("session_exist");
     });
 ?>
