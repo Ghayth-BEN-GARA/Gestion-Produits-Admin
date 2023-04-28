@@ -225,7 +225,7 @@
                                             <h5 class="card-title">Informations</h5>
                                             <div class="row">
                                                 <div class="col-md-10 col-lg-12">
-                                                    <form>
+                                                    <form name = "informations-profil-form" id = "informations-profil-form" method = "post" action = "{{url('/update-informations-profil')}}">
                                                         @csrf
                                                         <div class = "row">
                                                             <div class = "col-md-6">
@@ -250,6 +250,14 @@
                                                             </div>
                                                             <div class = "col-md-6">
                                                                 <div class="form-group">
+                                                                    <label>Rôle</label>
+                                                                    <input type="text" class="form-control" name = "role" id = "role" placeholder = "Entrez votre rôle.." value = "{{auth()->user()->role}}" disabled required>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class = "row">
+                                                            <div class = "col-md-6">
+                                                                <div class="form-group">
                                                                     <label>Genre</label>
                                                                     <select class = "form-control" name = "genre" id = "genre" required>
                                                                         <option value = "#" selected disabled>Sélectionnez votre genre..</option>
@@ -259,9 +267,7 @@
                                                                     </select>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class = "row">
-                                                            <div class = "col-md-12">
+                                                            <div class = "col-md-6">
                                                                 <div class="form-group">
                                                                     <label>Numéro Mobile</label>
                                                                     <input type="text" class="form-control" name = "mobile" id = "mobile" placeholder = "Entrez votre numéro mobile.." value = "{{auth()->user()->mobile}}" onKeyPress = "if(this.value.length==8) return false; return event.charCode>=48 && event.charCode<=57" required>

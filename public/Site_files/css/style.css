@@ -40,7 +40,7 @@ input:-webkit-autofill:focus {
     height: 45px;
 }
 .form-control:focus {
-    border-color: #3d5ee1;
+    border-color: #03156B;
     box-shadow: none;
     outline: 0;
 }
@@ -54,7 +54,7 @@ input:-webkit-autofill:focus {
     height: calc(1.5em + 1rem + 2px);
 }
 a {
-    color: #3d5ee1;
+    color: #03156B;
     text-decoration: none;
 }
 input,
@@ -997,14 +997,14 @@ button.bg-danger:hover {
 .open > .dropdown-toggle.btn-primary.focus,
 .open > .dropdown-toggle.btn-primary:focus,
 .open > .dropdown-toggle.btn-primary:hover {
-    background-color: #18aefa;
-    border: 1px solid #18aefa;
+    background-color: #03156B;
+    border: 1px solid #03156B;
 }
 .btn-primary.active:not(:disabled):not(.disabled),
 .btn-primary:active:not(:disabled):not(.disabled),
 .show > .btn-primary.dropdown-toggle {
-    background-color: #18aefa;
-    border-color: #18aefa;
+    background-color: #03156B;
+    border-color: #03156B;
     color: #fff;
 }
 .btn-primary.active:focus:not(:disabled):not(.disabled),
@@ -1075,8 +1075,8 @@ button.bg-danger:hover {
 .btn-info.active,
 .btn-info:active,
 .open > .dropdown-toggle.btn-info {
-    background-color: #028ee1;
-    border: 1px solid #028ee1;
+    background-color: #03156B;
+    border: 1px solid #03156B;
 }
 .btn-info.active.focus,
 .btn-info.active:focus,
@@ -1411,7 +1411,7 @@ button.bg-danger:hover {
 }
 .dropdown-item.active,
 .dropdown-item:active {
-    background-color: #3d5ee1;
+    background-color: #03156B;
 }
 .navbar-nav .open .dropdown-menu {
     border: 0;
@@ -1568,7 +1568,7 @@ div.dataTables_wrapper div.dataTables_length select {
 }
 .select2-container--default
     .select2-results__option--highlighted[aria-selected] {
-    background-color: #18aefa;
+    background-color: #03156B;
 }
 .select2-container--default .select2-selection--multiple {
     border: 1px solid #ddd;
