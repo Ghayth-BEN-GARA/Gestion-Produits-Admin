@@ -94,7 +94,7 @@
                                                 <div class="card-body">
                                                     <h5 class="card-title d-flex justify-content-between">
                                                         <span>Informations Personnelles</span>
-                                                        <a class="edit-link" href="">
+                                                        <a class="edit-link" href="{{url('/edit-informations-profil')}}">
                                                             <i class="far fa-edit me-1"></i>
                                                             Modifier
                                                         </a>

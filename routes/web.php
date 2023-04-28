@@ -31,8 +31,14 @@
 
     Route::controller(ProfilController::class)->group(function() {
         Route::get('/profil', 'ouvrirProfil')->middleware("session_not_exist");
-        Route::get('/edit-photo-profil', 'ouvrirEditProfil')->middleware("session_not_exist");
+        Route::get('/edit-photo-profil', 'ouvrirEditPhotoProfil')->middleware("session_not_exist");
         Route::post('/update-photo-profil', 'gestionUpdatePhotoDeProfil');
         Route::get('/update-status-profil', 'gestionUpdateStatusDeProfil');
+        Route::get('/edit-informations-profil', 'ouvrirEditInformationsProfil')->middleware("session_not_exist");
+        Route::post('/update-informations-profil', 'gestionUpdateInformationsDeProfil');
     });
 ?>
+
+
+
+
