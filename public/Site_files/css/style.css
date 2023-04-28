@@ -2301,7 +2301,7 @@ footer p {
     left: 0;
     margin-top: 0;
     position: fixed;
-    top: 60px;
+    top: 80px;
     transition: all 0.2s ease-in-out 0s;
     width: 259px;
     z-index: 1001;
