@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         @include("Layouts.head_auth")
-        <title>Connexion | Gestion des produits</title>
+        <title>Connexion | Assistance Bot</title>
     </head>
     <body>
         <div class="main">

@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         @include("Layouts.head_auth")
-        <title>Réinitialisation de mot de passe | Gestion des produits</title>
+        <title>Réinitialisation de mot de passe | Assistance Bot</title>
     </head>
     <body>
         <div class="main">
