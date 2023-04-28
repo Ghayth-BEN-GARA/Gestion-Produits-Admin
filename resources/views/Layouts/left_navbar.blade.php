@@ -11,7 +11,7 @@
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="{{url('/profil')}}">
                     <i class="feather-user"></i>
                     <span> Profil</span>
                 </a>

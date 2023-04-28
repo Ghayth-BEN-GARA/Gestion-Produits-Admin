@@ -2,6 +2,7 @@
     use Illuminate\Support\Facades\Route;
     use App\Http\Controllers\AuthentificationController;
     use App\Http\Controllers\DashboardController;
+    use App\Http\Controllers\ProfilController;
     /*
     |--------------------------------------------------------------------------
     | Web Routes
@@ -23,9 +24,11 @@
         Route::get('/logout', 'gestionLogout');
     });
 
-
-
     Route::controller(DashboardController::class)->group(function() {
         Route::get('/dashboard', 'ouvrirDashboard')->middleware("session_not_exist");
+    });
+
+    Route::controller(ProfilController::class)->group(function() {
+        Route::get('/profil', 'ouvrirProfil')->middleware("session_not_exist");
     });
 ?>

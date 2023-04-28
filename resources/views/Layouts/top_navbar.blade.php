@@ -46,7 +46,7 @@
                     <p class="text-muted mb-0">{{auth()->user()->role}}</p>
                 </div>
             </div>
-            <a class="dropdown-item" href="profile.html">Mon profil</a>
+            <a class="dropdown-item" href="{{url('/profil')}}">Profil</a>
             <a class="dropdown-item" href="javascript:void(0)" onclick = "questionDeconnexion()">Déconnexion</a>
         </div>
     </li>

@@ -178,7 +178,7 @@ table.table td h2 a {
     color: #333;
 }
 table.table td h2 a:hover {
-    color: #3d5ee1;
+    color: #03156B;
 }
 table.table td h2 span {
     color: #888;
@@ -253,7 +253,7 @@ table.table td h2 span {
 }
 .nav-tabs.menu-tabs .nav-item.active .nav-link {
     color: #fff;
-    background: #3d5ee1;
+    background: #03156B;
 }
 .settings-menu-links .nav-tabs.menu-tabs {
     border: none;
@@ -452,15 +452,15 @@ table.table td h2 span {
 }
 .nav-tabs.menu-tabs .nav-link:hover {
     color: #fff;
-    background: #3d5ee1;
+    background: #03156B;
 }
 .settings-form .social-icon {
     width: 50px;
     height: 40px;
     margin-right: 6px;
     color: #fff;
-    background: #3d5ee1;
-    border: 1px solid #3d5ee1;
+    background: #03156B;
+    border: 1px solid #03156B;
     border-radius: 5px;
     font-size: 24px;
     display: flex;
@@ -672,7 +672,7 @@ table.table td h2 span {
     align-items: center;
 }
 .actions a:hover {
-    background-color: #3d5ee1 !important;
+    background-color: #03156B !important;
     color: #fff !important;
 }
 .bg-purple-light {
@@ -969,23 +969,24 @@ button.bg-danger:hover {
     color: #757575 !important;
 }
 .btn-primary {
-    background-color: #3d5ee1;
-    border: 1px solid #3d5ee1;
+    background-color: #03156B;
+    border: 1px solid #03156B;
 }
 .btn-primary-save-bg {
     background-color: #18aefa;
 }
 .btn-primary-save-bg:hover {
-    background-color: #3d5ee1;
-    border: 1px solid #3d5ee1;
+    background-color: #03156B;
+    border: 1px solid #03156B;
 }
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary.active,
 .btn-primary:active,
 .open > .dropdown-toggle.btn-primary {
-    background-color: #18aefa;
-    border: 1px solid #18aefa;
+    background-color: #03156B;
+    border: 1px solid #03156B;
+    opacity: 0.8;
 }
 .btn-primary.active.focus,
 .btn-primary.active:focus,
@@ -1384,8 +1385,8 @@ button.bg-danger:hover {
 .pagination > .active > span,
 .pagination > .active > span:focus,
 .pagination > .active > span:hover {
-    background-color: #3d5ee1;
-    border-color: #3d5ee1;
+    background-color: #03156B;
+    border-color: #03156B;
 }
 .pagination > li > a,
 .pagination > li > span {
@@ -1595,8 +1596,8 @@ div.dataTables_wrapper div.dataTables_length select {
 .nav-tabs.nav-tabs-solid > .active > a,
 .nav-tabs.nav-tabs-solid > .active > a:hover,
 .nav-tabs.nav-tabs-solid > .active > a:focus {
-    background-color: #3d5ee1;
-    border-color: #3d5ee1;
+    background-color: #03156B;
+    border-color: #03156B;
     color: #fff;
 }
 .tab-content {
@@ -1628,8 +1629,8 @@ div.dataTables_wrapper div.dataTables_length select {
 .nav-tabs.nav-tabs-solid > li > a.active,
 .nav-tabs.nav-tabs-solid > li > a.active:hover,
 .nav-tabs.nav-tabs-solid > li > a.active:focus {
-    background-color: #3d5ee1;
-    border-color: #3d5ee1;
+    background-color: #03156B;
+    border-color: #03156B;
     color: #fff;
 }
 .nav-tabs.nav-tabs-solid.nav-tabs-rounded {
@@ -2057,7 +2058,7 @@ div.dataTables_wrapper div.dataTables_length select {
 }
 .user-menu.nav > li > a:hover i,
 .user-menu.nav > li > a:focus i {
-    color: #18aefa;
+    color: #03156B;
 }
 .user-img {
     margin-right: 3px;
@@ -2336,12 +2337,12 @@ footer p {
 }
 .sidebar-menu li a:hover {
     color: #fff;
-    background: #3d5ee1;
+    background: #03156B;
     border-radius: 6px;
 }
 .sidebar-menu > ul > li > a:hover {
     background-color: #fff;
-    color: #3d5ee1;
+    color: #03156B;
     margin: 0 -15px;
     padding-left: 30px;
 }
@@ -2726,7 +2727,7 @@ footer p {
     width: 32px;
 }
 .social-login > a:hover {
-    background-color: #3d5ee1;
+    background-color: #03156B;
     color: #fff;
 }
 .social-login > a i.fa-twitter,
@@ -3602,6 +3603,10 @@ table.table-inbox tbody tr.checked {
     color: #66676b;
     font-size: 16px;
     margin-top: 4px;
+}
+
+.edit-link:hover{
+    color: #03156B;
 }
 .form-title {
     width: 100%;
