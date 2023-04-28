@@ -3,6 +3,7 @@
     use App\Http\Controllers\AuthentificationController;
     use App\Http\Controllers\DashboardController;
     use App\Http\Controllers\ProfilController;
+    
     /*
     |--------------------------------------------------------------------------
     | Web Routes
@@ -30,5 +31,7 @@
 
     Route::controller(ProfilController::class)->group(function() {
         Route::get('/profil', 'ouvrirProfil')->middleware("session_not_exist");
+        Route::get('/edit-photo-profil', 'ouvrirEditProfil')->middleware("session_not_exist");
+        Route::post('/update-photo-profil', 'gestionUpdatePhotoDeProfil');
     });
 ?>

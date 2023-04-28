@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         @include("Layouts.head_site")
-        <title>Dashboard | Assistance Bot</title>
+        <title>{{auth()->user()->prenom}} {{auth()->user()->nom}} | Assistance Bot</title>
     </head>
     <body>
         <div class="main-wrapper">
@@ -46,7 +46,7 @@
                                         <div class="about-text text-capitalize"><?php setlocale (LC_TIME, 'fr_FR.utf8','fra'); echo utf8_encode(strftime("%A %d %B %Y",strtotime(strftime(auth()->user()->date_time_creation_user))))?></div>
                                     </div>
                                     <div class="col-auto profile-btn">
-                                        <a href="" class="btn btn-primary">
+                                        <a href="{{url('/edit-photo-profil')}}" class="btn btn-primary">
                                             Modifier
                                         </a>
                                     </div>
