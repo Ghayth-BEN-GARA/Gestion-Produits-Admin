@@ -36,9 +36,9 @@
         Route::get('/update-status-profil', 'gestionUpdateStatusDeProfil');
         Route::get('/edit-informations-profil', 'ouvrirEditInformationsProfil')->middleware("session_not_exist");
         Route::post('/update-informations-profil', 'gestionUpdateInformationsDeProfil');
+        Route::post('/update-password-profil', 'gestionUpdatePasswordDeProfil');
     });
 ?>
-
 
 
 

@@ -2,6 +2,7 @@
     namespace App\Http\Controllers;
     use Illuminate\Http\Request;
     use Illuminate\Support\Str;
+    use Hash;
     use App\Models\User;
 
     class ProfilController extends Controller{
@@ -100,6 +101,34 @@
                 "prenom" => $prenom,
                 "mobile" => $mobile,
                 "genre" => $genre
+            ]);
+        }
+
+        public function gestionUpdatePasswordDeProfil(Request $request){
+            if(!Hash::check($request->old_password, auth()->user()->password)){
+                return back()->with("erreur_old_password", "Votre ancien mot de passe saisi n'est pas correct.");
+            }
+
+            elseif($request->new_password != $request->confirm_new_password){
+                return back()->with("erreur_new_password", "Les deux mots de passe ne sont pas identiques.");
+            }
+
+            elseif(Hash::check($request->new_password, auth()->user()->password)){
+                return back()->with("erreur_new_password", "Le mot de passe saisie est votre ancien mot de passe.");
+            }
+
+            elseif($this->updatePasswordProfil($request->new_password, auth()->user()->id_user)){
+                return back()->with("success", "Nous sommes très heureux de vous informer que votre mot de passe a été modifié avec succès.");
+            }
+
+            else{
+                return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas modifier votre mot de passe pour le moment. Veuillez réessayer plus tard.");
+            }
+        }
+
+        public function updatePasswordProfil($password, $id_user){
+            return User::where("id_user", "=", $id_user)->update([
+                "password" => Hash::make($password)
             ]);
         }
     }

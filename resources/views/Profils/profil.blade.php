@@ -189,19 +189,28 @@
                                             <h5 class="card-title">Mot De Passe</h5>
                                             <div class="row">
                                                 <div class="col-md-10 col-lg-6">
-                                                    <form>
+                                                    <form name = "password-profil-form" id = "password-profil-form" method = "post" action = "{{url('/update-password-profil')}}">
                                                         @csrf
                                                         <div class="form-group">
                                                             <label>Ancien Mot De Passe</label>
                                                             <input type="password" class="form-control" name = "old_password" id = "old_password" placeholder = "Entrez votre ancien mot de passe.." required>
+                                                            @if (session()->has('erreur_old_password'))
+                                                                <p class="text-danger mt-2 mb-2">{{session()->get('erreur_old_password')}}</p>
+                                                            @endif
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Nouveau Mot De Passe</label>
                                                             <input type="password" class="form-control" name = "new_password" id = "new_password" placeholder = "Entrez votre nouveau mot de passe.." required>
+                                                            @if (session()->has('erreur_new_password'))
+                                                                <p class="text-danger mt-2 mb-2">{{session()->get('erreur_new_password')}}</p>
+                                                            @endif
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Confirmez Le Nouveau Mot De Passe</label>
                                                             <input type="password" class="form-control" name = "confirm_new_password" id = "confirm_new_password" placeholder = "Confirmez votre nouveau mot de passe.." required>
+                                                            @if (session()->has('erreur_new_password'))
+                                                                <p class="text-danger mt-2 mb-2">{{session()->get('erreur_new_password')}}</p>
+                                                            @endif
                                                         </div>
                                                         <button class="btn btn-primary" type="submit">Sauvegarder les modifications</button>
                                                     </form>
