@@ -10,4 +10,5 @@
 <link rel="stylesheet" href="{{asset('/Site_files/plugins/fontawesome/css/fontawesome.min.css')}}">
 <link rel="stylesheet" href="{{asset('/Site_files/plugins/fontawesome/css/all.min.css')}}">
 <link rel="stylesheet" href="{{asset('/Site_files/css/style.css')}}">
+<link rel="stylesheet" href="{{asset('/Site_files/css/sweetalert2.css')}}">
 <link rel = "icon" href = "{{asset('/Images/favicon.png')}}">

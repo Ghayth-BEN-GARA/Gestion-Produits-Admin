@@ -20,6 +20,7 @@
         Route::post('/post-forget-password', 'gestionForgetPassword');
         Route::get('/update-password', 'ouvrirUpdatePassword')->middleware("session_exist");
         Route::post('/post-update-password-forget', 'gestionUpdatePasswordForget');
+        Route::get('/logout', 'gestionLogout');
     });
 
 

@@ -148,5 +148,29 @@
         public function getInformationsUserWithId($id){
             return User::where("id_user", "=", $id)->first();
         }
+
+        public function gestionLogout(){
+            if($this->logoutUser()){
+                return redirect("/");
+            }
+
+            else{
+                return back();
+            }
+        }
+
+        public function logoutUser(){
+            Session::forget('email');
+            Session::flush();
+            auth()->logout();
+
+            if (!Session::has('email')){
+                return true;
+            }
+
+            else{
+                return false;
+            }
+        }
     }
 ?>
