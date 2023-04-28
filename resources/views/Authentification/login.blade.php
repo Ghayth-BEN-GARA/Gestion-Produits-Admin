@@ -44,11 +44,9 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="form-row">
+                            <div class = "form-row">
                                 <div class="form-group">
-                                    <label class = "link">
-                                        <a href = "">Mot De Passe Oublié ?</a>
-                                    </label>
+                                    <a href = "{{url('/forget-password')}}" class = "link float-end">Mot De Passe Oublié ?</a>
                                 </div>
                             </div>
                             <div class="form-submit">

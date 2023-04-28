@@ -16,6 +16,8 @@
     Route::controller(AuthentificationController::class)->group(function() {
         Route::get('/', 'ouvrirSignin')->middleware("session_exist");
         Route::post('/post-login', 'gestionLogin');
+        Route::get('/forget-password', 'ouvrirForgetPassword')->middleware("session_exist");
+        Route::post('/post-forget-password', 'gestionForgetPassword');
     });
 
     Route::controller(DashboardController::class)->group(function() {

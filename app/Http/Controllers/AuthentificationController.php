@@ -46,5 +46,13 @@
         public function creerSessionUser($email){
             Session::put('email', $email);;
         }
+
+        public function ouvrirForgetPassword(){
+            return view("Authentification.forget_password");
+        }
+
+        public function gestionForgetPassword(Request $request){
+            # code...
+        }
     }
 ?>
