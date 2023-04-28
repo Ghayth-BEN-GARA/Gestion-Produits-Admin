@@ -30,5 +30,33 @@
                 'image' => $path
             ]);
         }
+
+        public function gestionUpdateStatusDeProfil(Request $request){
+            if(auth()->user()->status_compte == true){
+                if($this->updateStatusProfil(false, auth()->user()->id_user)){
+                    return redirect("/profil")->with("success", "Nous sommes très heureux de vous informer que votre photo de profil a été modifiée avec succès.");
+                }
+
+                else{
+                    return redirect("/profil")->with("erreur", "Pour des raisons techniques, vous ne pouvez pas modifier votre photo de profil pour le moment. Veuillez réessayer plus tard.");
+                }
+            }
+
+            else{
+                if($this->updateStatusProfil(true, auth()->user()->id_user)){
+                    return redirect("/profil")->with("success", "Nous sommes très heureux de vous informer que votre photo de profil a été modifiée avec succès.");
+                }
+
+                else{
+                    return redirect("/profil")->with("erreur", "Pour des raisons techniques, vous ne pouvez pas modifier votre photo de profil pour le moment. Veuillez réessayer plus tard.");
+                }
+            }
+        }
+
+        public function updateStatusProfil($status, $id_user){
+            return User::where('id_user', '=', $id_user)->update([
+                'status_compte' => $status
+            ]);
+        }
     }
 ?>

@@ -39,3 +39,32 @@ async function chargement(message) {
         }
     })
 }
+
+function modifierStatusCompte() {
+    swal({
+        title: "Status",
+        text: "Vous êtes sûr de modifier la status de votre compte ?",
+        type: 'warning',
+        showConfirmButton: true,
+        showCancelButton: true,
+        showCloseButton: true,
+        allowOutsideClick: false,
+        confirmButtonColor: '#03156B',
+        confirmButtonText: 'Oui, Je suis sûr !',
+        cancelButtonText: 'Annuler',
+        padding: "2em",
+        width: "520px",
+    })
+
+    .then((result) => {
+        if (result.value) {
+            chargement("Modification en cours..").then(
+                location.href = "/update-status-profil"
+            );
+        }
+
+        else if (result.dismiss === swal.DismissReason.cancel) {
+            swal.close();
+        }
+    });
+}

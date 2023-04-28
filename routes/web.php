@@ -33,5 +33,6 @@
         Route::get('/profil', 'ouvrirProfil')->middleware("session_not_exist");
         Route::get('/edit-photo-profil', 'ouvrirEditProfil')->middleware("session_not_exist");
         Route::post('/update-photo-profil', 'gestionUpdatePhotoDeProfil');
+        Route::get('/update-status-profil', 'gestionUpdateStatusDeProfil');
     });
 ?>
