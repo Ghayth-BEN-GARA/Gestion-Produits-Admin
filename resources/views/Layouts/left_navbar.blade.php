@@ -16,6 +16,23 @@
                     <span> Profil</span>
                 </a>
             </li>
+            @if(auth()->user()->role == "Super Admin")
+                <li class="submenu">
+                    <a href="javascript:void(0)">
+                        <i class="feather-users"></i>
+                        <span> Utilisateurs</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="">Gestion des utilisateurs</a>
+                        </li>
+                        <li>
+                            <a href="{{url('/create-user')}}">Créer un utilisateur</a>
+                        </li>
+                    </ul>
+                </li>
+            @endif
         </ul>
     </div>
 </div>

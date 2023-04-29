@@ -63,6 +63,7 @@
             'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
             'session_exist' => \App\Http\Middleware\SessionTrouve::class,
             'session_not_exist' => \App\Http\Middleware\SessionNonTrouve::class,
+            'session_not_super_admin' => \App\Http\Middleware\SessionNotSuperAdmin::class,
         ];
     }
 ?>

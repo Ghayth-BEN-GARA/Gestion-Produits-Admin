@@ -3,6 +3,7 @@
     use App\Http\Controllers\AuthentificationController;
     use App\Http\Controllers\DashboardController;
     use App\Http\Controllers\ProfilController;
+    use App\Http\Controllers\UserController;
     
     /*
     |--------------------------------------------------------------------------
@@ -37,6 +38,10 @@
         Route::get('/edit-informations-profil', 'ouvrirEditInformationsProfil')->middleware("session_not_exist");
         Route::post('/update-informations-profil', 'gestionUpdateInformationsDeProfil');
         Route::post('/update-password-profil', 'gestionUpdatePasswordDeProfil');
+    });
+
+    Route::controller(UserController::class)->group(function() {
+        Route::get('/create-user', 'ouvrirCreateUser')->middleware("session_not_super_admin");
     });
 ?>
 
