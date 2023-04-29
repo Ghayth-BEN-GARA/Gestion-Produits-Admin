@@ -104,5 +104,57 @@
         public function deleteUser($id_user){
             return User::where("id_user", "=", $id_user)->delete();
         }
+
+        public function ouvrirEditUser(Request $request){
+            $user = $this->getInformationsUserWithId($request->input("id_user"));
+            return view("Users.edit_user", compact("user"));
+        }
+
+        public function gestionUpdateUser(Request $request){
+            if(is_null($request->genre)){
+                return back()->with("erreur_genre", "Vous devez sélectionner le genre.");
+            }
+
+            elseif(!$this->verifierStringLength($request->mobile)){
+                return back()->with("erreur_mobile", "Votre numéro mobile doit être composé de 8 chiffres.");
+            }
+
+            elseif($this->verifierSiNumeroMobileExistNotActuel($request->mobile, $request->input("id_user"))){
+                return back()->with("erreur_mobile", "Nous sommes désolés de vous informer que ce numéro mobile est utilisé pour créer un autre compte.");
+            }
+
+            elseif($this->updateUser($request->nom, $request->prenom, $request->genre, $request->password, $request->mobile, $request->input("id_user"))){
+                return back()->with("success", "Nous sommes très heureux de vous informer que cette utilisateur a été modifié avec succès.");
+            }
+
+            else{
+                return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas modifier cette utilisateur pour le moment. Veuillez réessayer plus tard.");
+            }
+        }
+
+        public function verifierSiNumeroMobileExistNotActuel($numero, $id_user){
+            return User::where("mobile", "=", $numero)->where("id_user", "<>", $id_user)->exists();
+        }
+
+        public function updateUser($nom, $prenom, $genre, $password, $mobile, $id_user){
+            if(is_null($password)){
+                return User::where("id_user", "=", $id_user)->update([
+                    "nom" => $nom,
+                    "prenom" => $prenom,
+                    "mobile" => $mobile,
+                    "genre" => $genre
+                ]);
+            }
+
+            else{
+                return User::where("id_user", "=", $id_user)->update([
+                    "nom" => $nom,
+                    "prenom" => $prenom,
+                    "mobile" => $mobile,
+                    "genre" => $genre,
+                    "password" => Hash::make($password)
+                ]);
+            }
+        }
     }
 ?>
