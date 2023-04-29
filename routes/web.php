@@ -4,6 +4,7 @@
     use App\Http\Controllers\DashboardController;
     use App\Http\Controllers\ProfilController;
     use App\Http\Controllers\UserController;
+    use App\Http\Controllers\ProduitController;
     
     /*
     |--------------------------------------------------------------------------
@@ -51,7 +52,10 @@
         Route::get('/liste-users-grid', 'ouvrirListeUsersGrid')->middleware("session_not_super_admin");
     });
 
-    
+    Route::controller(ProduitController::class)->group(function() {
+        Route::get('/create-produit', 'ouvrirCreateProduit')->middleware("session_not_super_admin");
+        Route::post('/add-produit', 'gestionAddProduit');
+    });
 ?>
 
 

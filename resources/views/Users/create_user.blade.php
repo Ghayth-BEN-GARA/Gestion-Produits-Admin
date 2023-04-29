@@ -17,7 +17,7 @@
                     <div class="page-header">
                         <div class="row">
                             <div class="col">
-                                <h3 class="page-title">Dashboard</h3>
+                                <h3 class="page-title">Nouveau produit</h3>
                                 <ul class="breadcrumb">
                                     <li class="breadcrumb-item">
                                         <a href="{{url('/dashboard')}}">Dashboard</a>

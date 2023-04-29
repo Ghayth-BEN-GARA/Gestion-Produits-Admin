@@ -14,8 +14,8 @@
                 $table->id("id_produit");
                 $table->string("nom_produit", 999)->default("Aucun");
                 $table->string("code_produit", 800)->default("Aucun");
-                $table->string("image", 999)->default("Aucun");
-                $table->string("description", 999)->default("Aucun");
+                $table->string("image_produit", 999)->default("Aucun");
+                $table->string("description_produit", 999)->default("Aucun");
             });
         }
 

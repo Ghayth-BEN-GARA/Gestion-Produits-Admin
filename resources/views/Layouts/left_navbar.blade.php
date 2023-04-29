@@ -32,6 +32,21 @@
                         </li>
                     </ul>
                 </li>
+                <li class="submenu">
+                    <a href="javascript:void(0)">
+                        <i class="feather-shopping-cart"></i>
+                        <span> Produits</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="">Gestion des produits</a>
+                        </li>
+                        <li>
+                            <a href="{{url('/create-produit')}}">Créer un produit</a>
+                        </li>
+                    </ul>
+                </li>
             @endif
         </ul>
     </div>

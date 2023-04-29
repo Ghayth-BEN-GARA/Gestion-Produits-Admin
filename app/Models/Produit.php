@@ -19,8 +19,8 @@
             'id_produit',
             "nom_produit",
             "code_produit",
-            'image',
-            'description'
+            'image_produit',
+            'description_produit'
         ];
     }
 ?>

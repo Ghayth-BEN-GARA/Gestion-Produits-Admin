@@ -1,0 +1,42 @@
+<?php
+    namespace App\Http\Controllers;
+    use Illuminate\Http\Request;
+    use App\Models\Produit;
+
+    class ProduitController extends Controller{
+        public function ouvrirCreateProduit(){
+            return view("Produits.create_produit");
+        }
+
+        public function gestionAddProduit(Request $request){
+            if($this->checkProduitExist($request->code_produit)){
+                return back()->with("erreur_code", "Nous sommes désolés de vous informer que ce code est utilisé pour créer un autre produit.");
+            }
+
+            else if($this->creerProduit($request->nom_produit, $request->code_produit, $request, $request->description_produit)){
+                return back()->with("success", "Nous sommes très heureux de vous informer que ce nouveau produit a été créé avec succès.");
+            }
+
+            else{
+                return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas créer ce nouveau produit pour le moment. Veuillez réessayer plus tard.");
+            }
+        }
+
+        public function checkProduitExist($code_produit){
+            return Produit::where("code_produit", "=", $code_produit)->exists();
+        }
+
+        public function creerProduit($nom, $code, $request, $description){
+            $filename = time().$request->file('file')->getClientOriginalName();
+            $path = $request->file->move('Produits_pictures', $filename);
+
+            $produit = new Produit();
+            $produit->nom_produit = $nom;
+            $produit->code_produit = $code;
+            $produit->image_produit = $path;
+            $produit->description_produit = $description;
+
+            return $produit->save();
+        }
+    }
+?>
