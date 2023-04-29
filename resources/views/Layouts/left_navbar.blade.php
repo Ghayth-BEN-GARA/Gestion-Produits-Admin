@@ -25,7 +25,7 @@
                     </a>
                     <ul>
                         <li>
-                            <a href="">Gestion des utilisateurs</a>
+                            <a href="{{url('/liste-users-table')}}">Gestion des utilisateurs</a>
                         </li>
                         <li>
                             <a href="{{url('/create-user')}}">Créer un utilisateur</a>

@@ -77,5 +77,9 @@
 
             return Mail::to($email)->send(new EnvoyerParametresAccesUser($mailData));
         }
+
+        public function ouvrirListeUsersTable(){
+            return view("Users.liste_users_table");
+        }
     }
 ?>
