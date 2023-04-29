@@ -90,5 +90,19 @@
         public function getInformationsUserWithId($id_user){
             return User::where("id_user", "=", $id_user)->first();
         }
+
+        public function gestionDeleteUser(Request $request){
+            if($this->deleteUser($request->input("id_user"))){
+                return back()->with("success", "Nous sommes très heureux de vous informer que cette utilisateur a été supprimé avec succès.");
+            }
+
+            else{
+                return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas supprimer cette utilisateur pour le moment. Veuillez réessayer plus tard.");
+            }
+        }
+
+        public function deleteUser($id_user){
+            return User::where("id_user", "=", $id_user)->delete();
+        }
     }
 ?>

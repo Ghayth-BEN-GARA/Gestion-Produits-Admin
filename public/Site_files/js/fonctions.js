@@ -68,3 +68,32 @@ function modifierStatusCompte() {
         }
     });
 }
+
+function questionSupprimerUser(id_user) {
+    swal({
+        title: "Utilisateur",
+        text: "Vous êtes sûr de supprimer ce compte ?",
+        type: 'warning',
+        showConfirmButton: true,
+        showCancelButton: true,
+        showCloseButton: true,
+        allowOutsideClick: false,
+        confirmButtonColor: '#03156B',
+        confirmButtonText: 'Oui, Je suis sûr !',
+        cancelButtonText: 'Annuler',
+        padding: "2em",
+        width: "420px",
+    })
+
+    .then((result) => {
+        if (result.value) {
+            chargement("Suppression en cours..").then(
+                location.href = "/delete-user?id_user="+id_user
+            );
+        }
+
+        else if (result.dismiss === swal.DismissReason.cancel) {
+            swal.close();
+        }
+    });
+}

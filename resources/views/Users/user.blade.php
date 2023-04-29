@@ -88,7 +88,11 @@
                                                         </div>
                                                         <div class="row">
                                                             <p class="col-sm-3 text-muted text-sm-end mb-0 mb-sm-3">Adresse email :</p>
-                                                            <p class="col-sm-9">{{$user->email}}</p>
+                                                            <p class="col-sm-9">
+                                                                <a href = "javascript:void(0)" class="__cf_email__">
+                                                                    [email&#160;protected]
+                                                                </a>
+                                                            </p>
                                                         </div>
                                                         <div class="row">
                                                             <p class="col-sm-3 text-muted text-sm-end mb-0 mb-sm-3">Genre :</p>

@@ -45,6 +45,7 @@
         Route::post('/add-user', 'gestionAddUser');
         Route::get('/liste-users-table', 'ouvrirListeUsersTable')->middleware("session_not_super_admin");
         Route::get('/user', 'ouvrirUser')->middleware("session_not_super_admin");
+        Route::get('/delete-user', 'gestionDeleteUser');
     });
 
     
