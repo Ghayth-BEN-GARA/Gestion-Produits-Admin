@@ -26,8 +26,8 @@
                             <div class="col">
                                 <h3 class="page-title">Utilisateurs</h3>
                                 <div class="col-auto text-end float-end ms-auto download-grp">
-                                    <a href="{{url('/liste-users-table')}}" class="btn btn-outline-gray me-2 active"><i class="feather-list"></i></a>
-                                    <a href="{{url('/liste-users-grid')}}" class="btn btn-outline-gray me-2"><i class="feather-grid"></i></a>
+                                    <a href="{{url('/liste-users-table')}}" class="btn btn-outline-gray me-2"><i class="feather-list"></i></a>
+                                    <a href="{{url('/liste-users-grid')}}" class="btn btn-outline-gray me-2 active"><i class="feather-grid"></i></a>
                                     <a href="{{url('/create-user')}}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
                                 </div>
                             </div>
