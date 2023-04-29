@@ -56,5 +56,14 @@
         public function deleteProduit($id_produit){
             return Produit::where("id_produit", "=", $id_produit)->delete();
         }
+
+        public function ouvrirProduit(Request $request){
+            $produit = $this->getInformationsProduit($request->input("id_produit"));
+            return view("Produits.produit", compact("produit"));
+        }
+
+        public function getInformationsProduit($id_produit){
+            return Produit::where("id_produit", "=", $id_produit)->first();
+        }
     }
 ?>
