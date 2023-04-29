@@ -42,6 +42,7 @@
 
     Route::controller(UserController::class)->group(function() {
         Route::get('/create-user', 'ouvrirCreateUser')->middleware("session_not_super_admin");
+        Route::post('/add-user', 'gestionAddUser');
     });
 ?>
 

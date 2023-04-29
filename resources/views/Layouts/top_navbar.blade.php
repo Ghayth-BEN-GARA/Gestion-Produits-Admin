@@ -3,7 +3,7 @@
         <img src="{{URL::asset('/Images/logo.png')}}" alt="Logo">
     </a>
     <a href="{{url('/dashboard')}}" class="logo logo-small">
-        <img src="{{URL::asset('/Images/logo.png')}}" alt="Logo">
+        <img src="{{URL::asset('/Images/favicon.png')}}" alt="Logo">
     </a>
 </div>
 <div class="menu-toggle">
@@ -13,7 +13,7 @@
 </div>
 <div class="top-nav-search">
     <form>
-        <input type="text" class="form-control" placeholder="Search here">
+        <input type="text" class="form-control" placeholder="Rechercher.." required>
         <button class="btn" type="submit"><i class="fas fa-search"></i></button>
     </form>
 </div>
