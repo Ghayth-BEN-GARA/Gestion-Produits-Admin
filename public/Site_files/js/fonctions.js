@@ -97,3 +97,32 @@ function questionSupprimerUser(id_user) {
         }
     });
 }
+
+function questionSupprimerProduit(id_produit) {
+    swal({
+        title: "Produit",
+        text: "Vous êtes sûr de supprimer ce produit ?",
+        type: 'warning',
+        showConfirmButton: true,
+        showCancelButton: true,
+        showCloseButton: true,
+        allowOutsideClick: false,
+        confirmButtonColor: '#03156B',
+        confirmButtonText: 'Oui, Je suis sûr !',
+        cancelButtonText: 'Annuler',
+        padding: "2em",
+        width: "420px",
+    })
+
+    .then((result) => {
+        if (result.value) {
+            chargement("Suppression en cours..").then(
+                location.href = "/delete-produit?id_produit="+id_produit
+            );
+        }
+
+        else if (result.dismiss === swal.DismissReason.cancel) {
+            swal.close();
+        }
+    });
+}

@@ -42,5 +42,19 @@
         public function ouvrirListeProduits(){
             return view("Produits.liste_produits");
         }
+
+        public function gestionDeleteProduit(Request $request){
+            if($this->deleteProduit($request->input("id_produit"))){
+                return back()->with("success", "Nous sommes très heureux de vous informer que ce produit a été supprimé avec succès.");
+            }
+
+            else{
+                return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas supprimer ce produit pour le moment. Veuillez réessayer plus tard.");
+            }
+        }
+
+        public function deleteProduit($id_produit){
+            return Produit::where("id_produit", "=", $id_produit)->delete();
+        }
     }
 ?>
