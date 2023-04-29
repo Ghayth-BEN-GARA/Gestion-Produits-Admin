@@ -81,5 +81,14 @@
         public function ouvrirListeUsersTable(){
             return view("Users.liste_users_table");
         }
+
+        public function ouvrirUser(Request $request){
+            $user = $this->getInformationsUserWithId($request->input("id_user"));
+            return view("Users.user", compact("user"));
+        }
+
+        public function getInformationsUserWithId($id_user){
+            return User::where("id_user", "=", $id_user)->first();
+        }
     }
 ?>

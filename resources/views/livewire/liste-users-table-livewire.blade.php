@@ -71,7 +71,7 @@
                                                 </td>
                                                 <td class="text-end">
                                                     <div class="actions ">
-                                                        <a href="javascript:void(0)" class="btn btn-sm bg-success-light me-2">
+                                                        <a href="{{url('/user?id_user='.$data->id_user)}}" class="btn btn-sm bg-success-light me-2">
                                                             <i class="feather-eye"></i>
                                                         </a>
                                                         <a href="{{url('/edit-user?id_user='.$data->id_user)}}" class="btn btn-sm bg-danger-light">
