@@ -48,6 +48,7 @@
         Route::get('/delete-user', 'gestionDeleteUser');
         Route::get('/edit-user', 'ouvrirEditUser')->middleware("session_not_super_admin");
         Route::post('/update-user', 'gestionUpdateUser');
+        Route::get('/liste-users-grid', 'ouvrirListeUsersGrid')->middleware("session_not_super_admin");
     });
 
     

@@ -156,5 +156,9 @@
                 ]);
             }
         }
+
+        public function ouvrirListeUsersGrid(){
+            return view("Users.liste_users_grid");
+        }
     }
 ?>

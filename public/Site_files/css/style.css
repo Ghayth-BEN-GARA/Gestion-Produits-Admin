@@ -3982,6 +3982,8 @@ table.table-inbox tbody tr.checked {
 }
 .student-img img {
     border-radius: 50%;
+    width: 120px;
+    height: 120px;
 }
 .student-content {
     padding: 15px 0;
