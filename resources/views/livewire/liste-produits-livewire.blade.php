@@ -47,12 +47,14 @@
                                                             <a href="{{url('/produit?id_produit='.$data->id_produit)}}" class="btn btn-sm bg-success-light me-2">
                                                                 <i class="feather-eye"></i>
                                                             </a>
-                                                            <a href="{{url('/edit-produit?id_produit='.$data->id_produit)}}" class="btn btn-sm bg-danger-light">
-                                                                <i class="feather-edit"></i>
-                                                            </a>
-                                                            <a href="javascript:void(0)" class="btn btn-sm bg-danger-light" onclick = "questionSupprimerProduit({{$data->id_produit}})">
-                                                                <i class="feather-trash"></i>
-                                                            </a>
+                                                            @if(auth()->user()->role == "Super Admin")
+                                                                <a href="{{url('/edit-produit?id_produit='.$data->id_produit)}}" class="btn btn-sm bg-danger-light">
+                                                                    <i class="feather-edit"></i>
+                                                                </a>
+                                                                <a href="javascript:void(0)" class="btn btn-sm bg-danger-light" onclick = "questionSupprimerProduit({{$data->id_produit}})">
+                                                                    <i class="feather-trash"></i>
+                                                                </a>
+                                                            @endif
                                                         </div>
                                                     </div>
                                                 </tr>

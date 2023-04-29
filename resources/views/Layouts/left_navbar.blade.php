@@ -32,18 +32,47 @@
                         </li>
                     </ul>
                 </li>
+            @endif
+            <li class="submenu">
+                <a href="javascript:void(0)">
+                    <i class="feather-shopping-cart"></i>
+                    <span> Produits</span>
+                    <span class="menu-arrow"></span>
+                </a>
+                <ul>
+                    <li>
+                        <a href="{{url('/liste-produits')}}">Gestion des produits</a>
+                    </li>
+                    @if(auth()->user()->role == "Super Admin")
+                        <li>
+                            <a href="{{url('/create-produit')}}">Créer un produit</a>
+                        </li>
+                    @endif
+                </ul>
+            </li>
+            @if(auth()->user()->role == "Super Admin")
                 <li class="submenu">
                     <a href="javascript:void(0)">
-                        <i class="feather-shopping-cart"></i>
-                        <span> Produits</span>
+                        <i class="feather-package"></i>
+                        <span> Formulaires</span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul>
                         <li>
-                            <a href="{{url('/liste-produits')}}">Gestion des produits</a>
+                            <a href="{{url('/liste-formulaires')}}">Gestion des formulaires</a>
                         </li>
+                    </ul>
+                </li>
+            @else
+                <li class="submenu">
+                    <a href="javascript:void(0)">
+                        <i class="feather-package"></i>
+                        <span> Mes Formulaires</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul>
                         <li>
-                            <a href="{{url('/create-produit')}}">Créer un produit</a>
+                            <a href="{{url('/liste-mes-formulaires')}}">Gestion des formulaires</a>
                         </li>
                     </ul>
                 </li>
