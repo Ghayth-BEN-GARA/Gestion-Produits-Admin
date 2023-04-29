@@ -134,8 +134,7 @@
             }
 
             else if($this->updatePasswordUser($request->password, $request->input("id_user"))){
-                $this->creerSessionUser($this->getInformationsUserWithId($request->id_user));
-                return redirect("/dashboard");
+                return redirect("/");
             }
         }
 
