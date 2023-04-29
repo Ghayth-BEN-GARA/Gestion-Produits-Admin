@@ -38,5 +38,9 @@
 
             return $produit->save();
         }
+
+        public function ouvrirListeProduits(){
+            return view("Produits.liste_produits");
+        }
     }
 ?>

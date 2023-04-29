@@ -55,6 +55,7 @@
     Route::controller(ProduitController::class)->group(function() {
         Route::get('/create-produit', 'ouvrirCreateProduit')->middleware("session_not_super_admin");
         Route::post('/add-produit', 'gestionAddProduit');
+        Route::get('/liste-produits', 'ouvrirListeProduits')->middleware("session_not_super_admin");
     });
 ?>
 

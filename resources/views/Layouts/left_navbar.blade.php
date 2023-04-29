@@ -40,7 +40,7 @@
                     </a>
                     <ul>
                         <li>
-                            <a href="">Gestion des produits</a>
+                            <a href="{{url('/liste-produits')}}">Gestion des produits</a>
                         </li>
                         <li>
                             <a href="{{url('/create-produit')}}">Créer un produit</a>
