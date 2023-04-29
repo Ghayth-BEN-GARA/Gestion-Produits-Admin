@@ -68,7 +68,7 @@
                                                         <label>Code de produit <span class="login-danger">*</span></label>
                                                         <input type="text" class="form-control" name = "code_produit" id = "code_produit" placeholder="Entrez le code de produit.." required>
                                                         @if (session()->has('erreur_code'))
-                                                        <p class="text-danger mt-2 mb-2">{{session()->get('erreur_code')}}</p>
+                                                            <p class="text-danger mt-2 mb-2">{{session()->get('erreur_code')}}</p>
                                                         @endif
                                                     </div>
                                                 </div>

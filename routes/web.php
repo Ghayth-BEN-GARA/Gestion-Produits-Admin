@@ -58,6 +58,8 @@
         Route::get('/liste-produits', 'ouvrirListeProduits')->middleware("session_not_super_admin");
         Route::get('/delete-produit', 'gestionDeleteProduit');
         Route::get('/produit', 'ouvrirProduit')->middleware("session_not_exist");
+        Route::get('/edit-produit', 'ouvrirEditProduit')->middleware("session_not_super_admin");
+        Route::post('/update-produit', 'gestionUpdateProduit');
     });
 ?>
 
