@@ -66,6 +66,7 @@
     Route::controller(FormulaireController::class)->group(function() {
         Route::get('/liste-formulaires', 'ouvrirListeFormulaires')->middleware("session_not_super_admin");
         Route::post('/affect-admin', 'gestionAffectAdmin');
+        Route::get('/formulaire', 'ouvrirFormulaire')->middleware("session_not_exist");
     });
 ?>
 
