@@ -47,7 +47,7 @@
                                         Voir
                                     </a>
                                     @if($data->id_admin == null)
-                                        <a href="{{url('/affect-formulaire-admin?id_formulaire='.$data->id_formulaire)}}" class="text-danger">
+                                        <a href="javascript:void(0)" data-bs-toggle="modal" class="text-danger open" data-produit = "{{$data->nom_produit}}" data-id_formulaire = "{{$data->id_formulaire}}">
                                             <i class="feather-user-check me-1"></i>
                                             Affecter
                                         </a>
@@ -83,4 +83,58 @@
     <div class = "mt-4 mb-4">
         {{$formulaires->links("pagination::bootstrap-4")}}
     </div>
+
+    <div id="affect-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="text-center mt-0 mb-0">
+                        <div class="auth-logo" style = "margin-top:-50px">
+                            <a href="{{url('/dashboard')}}" class="logo logo-dark">
+                                <span class="logo-lg">
+                                    <img src="{{URL::asset('/Images/logo.png')}}" alt="Logo de l'application" height="300">
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <form class="mx-3" method = "post" action="{{url('/affect-admin')}}" style = "margin-top:-50px">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="produit" class="form-label">Produit</label>
+                            <input type="text" class="form-control" id="nom_produit" name="nom_produit" placeholder="Entrez le nom de produit" disabled required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="admin" class="form-label">Admin</label>
+                            <select class = "form-control" name = "admin" id = "admin" required>
+                                <option value = "#" selected disabled>Sélectionnez l'admin..</option>
+                                @if(empty($this->getListeAdmin()))
+                                    <option value = "#">Aucun admin actuellement trouvé.</option>
+                                @else
+                                    @foreach($this->getListeAdmin() as $data)
+                                        <option value = "{{$data->id_user}}">{{$data->prenom}} {{$data->nom}}</option>
+                                    @endforeach
+                                @endif
+                            </select>
+                        </div>
+                        <input type = "hidden" name = "id_formulaire" id = "id_formulaire" required>
+                        <div class="mb-3 text-center">
+                            <button class="btn btn-primary" type="submit">Affecter</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $(".open").click(function () {
+                var produit = $(this).data('produit');
+                var id_formulaire = $(this).data('id_formulaire');
+                $("#nom_produit").val(produit);
+                $("#id_formulaire").val(id_formulaire);
+                $("#affect-modal").modal('show');
+            })
+        });
+    </script>
 </div>
