@@ -52,5 +52,25 @@
         public static function getInformationsClient($id_admin){
            return User::where("id_user", "=", $id_admin)->first();
         }
+
+        public function ouvrirListeMesFormulaires(Request $request){
+            return view("Formulaires.liste_mes_formulaires");
+        }
+
+        public function gestionUpdateIsTraited(Request $request){
+            if($this->updateIsTraited($request->input("id_formulaire"))){
+                return back()->with("success", "Nous sommes très heureux de vous informer que vous avez modifié le status du passe avec succès.");
+            }
+
+            else{
+                return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas modifier le status du panne pour le moment. Veuillez réessayer plus tard.");
+            }
+        }
+
+        public function updateIsTraited($id_formulaire){
+            return Formulaire::where("id_formulaire", "=", $id_formulaire)->update([
+                "is_traited" => true
+            ]);
+        }
     }
 ?>
