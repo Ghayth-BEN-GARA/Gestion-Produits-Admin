@@ -5,6 +5,7 @@
     use App\Http\Controllers\ProfilController;
     use App\Http\Controllers\UserController;
     use App\Http\Controllers\ProduitController;
+    use App\Http\Controllers\FormulaireController;
     
     /*
     |--------------------------------------------------------------------------
@@ -60,6 +61,10 @@
         Route::get('/produit', 'ouvrirProduit')->middleware("session_not_exist");
         Route::get('/edit-produit', 'ouvrirEditProduit')->middleware("session_not_super_admin");
         Route::post('/update-produit', 'gestionUpdateProduit');
+    });
+
+    Route::controller(FormulaireController::class)->group(function() {
+        Route::get('/liste-formulaires', 'ouvrirListeFormulaires')->middleware("session_not_super_admin");
     });
 ?>
 
